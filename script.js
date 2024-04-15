@@ -5,6 +5,9 @@ let button500 = document.getElementById("bonus500");
 let button1000 = document.getElementById("bonus1000");
 
 let numberOfClick = 45;
+if (localStorage.getItem("nombreDeClick")){
+    numberOfClick = localStorage.getItem("nombreDeClick");
+}
 
 let interval = 1000;
 let intervalID;
@@ -98,6 +101,22 @@ button1000.addEventListener('click', function () {
     console.log(bonus1000)
     }
 });
+
+if (bonus50 == "true") {
+    autoClicker();
+    startInterval();
+    console.log("50")
+}
+
+if (bonus125 == "true") {
+    interval = 500;
+    updateInterval();
+}
+
+if (bonus500 == "true") {
+    interval = 125;
+    updateInterval();
+}
 
 
 function updateInterval() {
