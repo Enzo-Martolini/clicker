@@ -145,3 +145,10 @@ p {
 .left-column {
   padding-left: 10px;
 }
+
+#sova {
+  position:fixed;
+  display: none;
+  z-index: 2;
+  bottom: 0;
+}
