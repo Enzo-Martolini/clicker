@@ -16,7 +16,7 @@ let div9 = document.getElementById("9")
 let div10 = document.getElementById("10")
 
 
-let numberOfClick = 500;
+let numberOfClick = 0;
 
 if (localStorage.getItem("nombreDeClick")){
     numberOfClick = localStorage.getItem("nombreDeClick");
@@ -67,11 +67,11 @@ button.addEventListener('click', function () {
 function startAutoClicker () {
     if (numberOfClick >= 50 && bonus50 !=true) {
         interval=1000;
-        numberOfClick-=50;
         autoClicker();
         startInterval();
         bonus50=true;
         localStorage.setItem('bonus50', bonus50);
+        button50.classList.add("true")
     }
 }
 
@@ -98,6 +98,7 @@ function autoClicker() {
         
         if (numberOfClick >= 400) {
             div4.classList.remove("false");
+            changerImage();
         }
 
         if (numberOfClick >= 500) {
@@ -106,6 +107,7 @@ function autoClicker() {
 
         if (numberOfClick >= 600) {
             div6.classList.remove("false");
+            changerImage();
         }
 
         if (numberOfClick >= 700) {
@@ -122,6 +124,7 @@ function autoClicker() {
         
         if (numberOfClick >= 1000) {
             div10.classList.remove("false");
+            changerImage();
         }
         
     }
@@ -136,10 +139,11 @@ button125.addEventListener('click', function () {
     bonus125 = true;
     localStorage.setItem('bonus125', bonus125);
     interval = 500;
-    numberOfClick -= 125
     updateInterval();
     console.log(interval)
     console.log(bonus125)
+    button125.classList.add("true")
+
     }
 });
 
@@ -150,7 +154,8 @@ button500.addEventListener('click', function () {
     interval = 250;
     updateInterval();
     console.log(bonus500)
-    numberOfClick-=500;
+    button500.classList.add("true")
+
     }
 });
 
@@ -161,7 +166,8 @@ button1000.addEventListener('click', function () {
     interval = 125;
     updateInterval();
     console.log(bonus1000)
-    numberOfClick-=1000;
+    button1000.classList.add("true")
+
     }
 });
 
@@ -169,16 +175,22 @@ if (bonus50 == "true") {
     autoClicker();
     startInterval();
     console.log("50")
+    button50.classList.add("true")
+
 }
 
 if (bonus125 == "true") {
     interval = 500;
     updateInterval();
+    button125.classList.add("true")
+
 }
 
 if (bonus500 == "true") {
     interval = 125;
     updateInterval();
+    button500.classList.add("true")
+
 }
 
 
@@ -192,5 +204,24 @@ function updateCompteur () {
    compteur.textContent = numberOfClick;
 }
 
+    function changerImage() {
+
+        let image = document.querySelector(".gekko img");
+    
+        if (numberOfClick > 400) 
+        {
+            image.setAttribute("src", "/images/Verti.png");
+        };
+
+        if (numberOfClick > 600)
+        {
+            image.setAttribute("src", "/images/Altego.png");
+        };
+
+        if (numberOfClick > 1000)
+        {
+            image.setAttribute("src", "/images/Mordicus.png");
+        };
+    }
 
 

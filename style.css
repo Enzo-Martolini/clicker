@@ -21,11 +21,14 @@ width: 100%;
 }
 
 #progression .false {
-  background-color: rgb(153, 28, 28);
+  background-color: #3fc795;
 }
 
-progress::-webkit-progress-bar {
-  background-color: transparent; /* Supprime la couleur de fond par défaut */
+#compteur {
+  position:fixed;
+  z-index: 2;
+  left: 2;
+  top:10;
 }
 
 body,
@@ -98,6 +101,11 @@ footer {
   /* box-shadow: 0px 0px 0px; */
   border: 0px;
 }
+
+.footer-container .true {
+  background-color: #3fc795; /* Fond vert au survol */
+}
+
 .imgGhost {
   width: 170px;
   height: auto;
@@ -132,4 +140,8 @@ p {
   color: red;
   font-size: 100px;
   padding-left: 50px;
+}
+
+.left-column {
+  padding-left: 10px;
 }
