@@ -262,7 +262,7 @@ function updateCompteur () {
       // Définir une fonction pour appeler randomConsoleLog toutes les minutes
       function startLogging() {
         randomSova();
-        intervalIDSova = setInterval(randomSova, 6000);
+        intervalIDSova = setInterval(randomSova, 36000);
       }
       
       // Appeler startLogging pour démarrer le processus de logging
@@ -280,7 +280,7 @@ function updateCompteur () {
     function bonusTemporaire() {
 
         var randomNum = Math.floor(Math.random() * 10);
-        if (randomNum > 4)
+        if (randomNum == 4)
             {
                 secondesEcoulees++;
                 bonusTemp=true;
