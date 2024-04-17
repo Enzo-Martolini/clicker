@@ -107,19 +107,23 @@ footer {
 }
 
 .imgGhost {
-  width: 170px;
+  width: 140px;
   height: auto;
 }
 .imgSpectre {
-  width: 206px;
+  width: 186px;
   height: auto;
 }
 .imgVandal {
-  width: 200px;
+  width: 170px;
   height: auto;
 }
 .imgOdin {
-  width: 198px;
+  width: 168px;
+  height: auto;
+}
+.imgValoPoint {
+  width: 25px;
   height: auto;
 }
 p {
@@ -136,6 +140,11 @@ p {
   align-items: center; /* Pour aligner l'image verticalement */
 }
 
+.line_clicpoints {
+  display: flex;
+  align-items: center;
+}
+
 #compteur {
   color: red;
   font-size: 100px;
@@ -144,4 +153,16 @@ p {
 
 .left-column {
   padding-left: 10px;
+}
+
+.power {
+  font-style: italic;
+  margin:0;
+  padding: 0px;
+  font-size: 0.8em;
+}
+
+p {
+  margin: 3px;
+  padding:0;
 }
