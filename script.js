@@ -18,6 +18,14 @@ let div10 = document.getElementById("10");
 
 let numberOfClick = 0;
 
+var audio = new Audio("sons/son accueil.mp3"); // initializing audio
+
+musique(); // Now calling the function after audio is initialized
+
+function musique() {
+  audio.play(); // Now this should work fine
+}
+
 if (localStorage.getItem("nombreDeClick")) {
   numberOfClick = Number(localStorage.getItem("nombreDeClick"));
 }
@@ -219,6 +227,9 @@ function changerImage() {
 
   if (numberOfClick > 400) {
     image.setAttribute("src", "/images/Verti.png");
+  }
+
+  if (numberOfClick == 400) {
     audio.src = "sons/son verti.mp3";
     audio.play();
   }
@@ -226,9 +237,16 @@ function changerImage() {
   if (numberOfClick > 600) {
     image.setAttribute("src", "/images/Altego.png");
   }
-
+  if (numberOfClick == 600) {
+    audio.src = "sons/son altego.mp3";
+    audio.play();
+  }
   if (numberOfClick > 1000) {
     image.setAttribute("src", "/images/Mordicus.png");
+  }
+  if (numberOfClick == 1000) {
+    audio.src = "sons/son mordicus.mp3";
+    audio.play();
   }
 }
 
@@ -282,15 +300,15 @@ function bonusTemporaire() {
 var intervalIdDoubleClics = setInterval(bonusTemporaire, 6000);
 bonusTemporaire();
 
-// Récupérer l'élément du bouton et l'élément audio
-const playButton = document.getElementById("sectionClicker");
-const audio = document.getElementById("audio");
+// // Récupérer l'élément du bouton et l'élément audio
+// const playButton = document.getElementById("sectionClicker");
+// const audio = document.getElementById("audio");
 
-// Ajouter un gestionnaire d'événements pour le premier clic sur le bouton
-playButton.addEventListener("click", function () {
-  // Jouer le son
-  audio.play();
+// // Ajouter un gestionnaire d'événements pour le premier clic sur le bouton
+// playButton.addEventListener("click", function () {
+//   // Jouer le son
+//   audio.play();
 
-  // Désactiver le bouton après le premier clic
-  playButton.disabled = true;
-});
+//   // Désactiver le bouton après le premier clic
+//   playButton.disabled = true;
+// });
