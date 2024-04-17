@@ -3,6 +3,7 @@ let button50 = document.getElementById("bonus50");
 let button125 = document.getElementById("bonus125");
 let button500 = document.getElementById("bonus500");
 let button1000 = document.getElementById("bonus1000");
+let sova = document.getElementById("sova")
 
 let div1 = document.getElementById("1")
 let div2 = document.getElementById("2")
@@ -19,17 +20,20 @@ let div10 = document.getElementById("10")
 let numberOfClick = 0;
 
 if (localStorage.getItem("nombreDeClick")){
-    numberOfClick = localStorage.getItem("nombreDeClick");
+    numberOfClick = Number(localStorage.getItem("nombreDeClick"));
 }
 
 let interval = 1000;
 let intervalID;
+
+let valeurClic = 1;
 
 
 bonus50 = false;
 bonus125 = false;
 bonus500 = false;
 bonus1000 = false;
+bonusTemp = false;
 
 if (localStorage.getItem("bonus50")) {
     bonus50 = localStorage.getItem("bonus50");
@@ -53,11 +57,10 @@ console.log(bonus500);
 console.log(bonus1000);
 
 
-
 button50.addEventListener('click', startAutoClicker);
 
 button.addEventListener('click', function () {
-    numberOfClick++;
+    numberOfClick += Number(valeurClic);
     console.log(numberOfClick)
     updateCompteur();
 
@@ -77,7 +80,18 @@ function startAutoClicker () {
 
 
 function autoClicker() {
-        numberOfClick++;
+        console.log("valeurClic:", valeurClic);
+
+        if (bonusTemp == true) {
+            valeurClic = 10;
+        } else if (bonus500 == true) {
+            valeurClic = 2;
+        } else if (bonus1000 == true) {
+            valeurClic = 4;
+        } else {
+            valeurClic = 1;
+        }
+        numberOfClick += valeurClic;
 
         localStorage.setItem('nombreDeClick', numberOfClick);
 
@@ -148,16 +162,24 @@ button125.addEventListener('click', function () {
 });
 
 button500.addEventListener('click', function () {
-    if (numberOfClick >= 500 && bonus500 !=true) {
-    bonus500 = true;
-    localStorage.setItem('bonus500', bonus500);
-    interval = 250;
-    updateInterval();
-    console.log(bonus500)
-    button500.classList.add("true")
+    if (numberOfClick >= 500 && bonus500 != true) {
+        // Arrêter l'intervalle existant
+        clearInterval(intervalID);
 
+        // Lancer l'autoClicker avec la nouvelle valeur de valeurClic
+        autoClicker();
+
+        // Redémarrer l'intervalle avec la nouvelle valeur de valeurClic
+        startInterval();
+        
+        // Mettre à jour le statut du bonus et les éléments DOM
+        bonus500 = true;
+        localStorage.setItem('bonus500', bonus500);
+        console.log(bonus500)
+        button500.classList.add("true")
     }
 });
+
 
 button1000.addEventListener('click', function () {
     if (numberOfClick >= 1000 && bonus1000 !=true) {
@@ -181,14 +203,15 @@ if (bonus50 == "true") {
 
 if (bonus125 == "true") {
     interval = 500;
+    autoClicker();
     updateInterval();
     button125.classList.add("true")
 
 }
 
 if (bonus500 == "true") {
-    interval = 125;
-    updateInterval();
+    autoClicker();
+    valeurClic = parseInt(2);
     button500.classList.add("true")
 
 }
@@ -225,3 +248,60 @@ function updateCompteur () {
     }
 
 
+    function randomSova() {
+        var randomNum = Math.floor(Math.random() * 10);
+        console.log(randomNum)
+        if (randomNum == 5) {
+          sova.style.display = "block";
+          console.log("Maintenant")
+        }
+      }
+      
+      let intervalIDSova;
+
+      // Définir une fonction pour appeler randomConsoleLog toutes les minutes
+      function startLogging() {
+        randomSova();
+        intervalIDSova = setInterval(randomSova, 36000);
+      }
+      
+      // Appeler startLogging pour démarrer le processus de logging
+      startLogging();
+      
+      sova.addEventListener("click", function () {
+        backgroundImage = document.getElementById("background");
+        backgroundImage.setAttribute("src", "images/icebox.jpg");
+        sova.style.display = "none";
+        clearInterval(intervalIDSova);
+      })
+
+    var secondesEcoulees = 0;
+
+    function bonusTemporaire() {
+
+        var randomNum = Math.floor(Math.random() * 10);
+        if (randomNum == 4)
+            {
+                secondesEcoulees++;
+                bonusTemp=true;
+                console.log("bonus actif")
+
+                if (secondesEcoulees >= 2) {
+                    bonusTemp=false;
+                    clearInterval(intervalIdDoubleClics);
+                    console.log("Fin de l'exécution après 30 secondes.");
+                }
+
+            }
+
+        console.log("Tentative bonus temporaire")
+        console.log(randomNum)
+
+
+    }
+
+
+    
+
+    var intervalIdDoubleClics = setInterval(bonusTemporaire, 6000);
+    bonusTemporaire();
