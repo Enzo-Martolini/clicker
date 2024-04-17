@@ -155,14 +155,9 @@ p {
   padding-left: 10px;
 }
 
-.power {
-  font-style: italic;
-  margin:0;
-  padding: 0px;
-  font-size: 0.8em;
-}
-
-p {
-  margin: 3px;
-  padding:0;
+#sova {
+  position:fixed;
+  display: none;
+  z-index: 2;
+  bottom: 0;
 }
