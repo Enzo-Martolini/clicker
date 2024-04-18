@@ -18,6 +18,36 @@ let div10 = document.getElementById("10");
 
 let numberOfClick = 0;
 
+let sonsArmes = new Audio();
+
+if (bonus1000 == true) {
+  sonsArmes.src = "sons/son odin.mp3";
+} else if (bonus500 == true) {
+  sonsArmes.src = "sons/son vandal.mp3";
+} else if (bonus125 == true) {
+  sonsArmes.src = "sons/son spectre.mp3";
+} else if (bonus50 == true) {
+  sonsArmes.src = "sons/son ghost.mp3";
+}
+
+// Ajoutez cette ligne pour jouer le son après avoir défini la source
+sonsArmes.play();
+
+button.addEventListener("click", function () {
+  numberOfClick += Number(valeurClic);
+  console.log(numberOfClick);
+  updateCompteur();
+
+  localStorage.setItem("nombreDeClick", numberOfClick);
+
+  // Ajoutez cette condition pour vérifier si le bonus50 est activé
+  if (bonus50) {
+    // Jouer le son lorsque le bonus50 est activé
+    sonsArmes.src = "sons/son ghost.mp3";
+    sonsArmes.play();
+  }
+});
+
 var audio = new Audio("sons/son accueil.mp3"); // initialisation de l'audio
 audio.loop = true; // active la mise en boucle
 
@@ -70,14 +100,6 @@ console.log(bonus500);
 console.log(bonus1000);
 
 button50.addEventListener("click", startAutoClicker);
-
-button.addEventListener("click", function () {
-  numberOfClick += Number(valeurClic);
-  console.log(numberOfClick);
-  updateCompteur();
-
-  localStorage.setItem("nombreDeClick", numberOfClick);
-});
 
 function startAutoClicker() {
   if (numberOfClick >= 50 && bonus50 != true) {
@@ -258,6 +280,7 @@ function changerImage() {
 }
 
 function randomSova() {
+  console.log("tentative sova");
   var randomNum = Math.floor(Math.random() * 10);
   console.log(randomNum);
   if (randomNum == 5) {
@@ -288,15 +311,17 @@ var secondesEcoulees = 0;
 
 function bonusTemporaire() {
   var randomNum = Math.floor(Math.random() * 10);
+
   if (randomNum == 4) {
     secondesEcoulees++;
     bonusTemp = true;
     console.log("bonus actif");
+    console.log(secondesEcoulees);
 
     if (secondesEcoulees >= 2) {
       bonusTemp = false;
-      clearInterval(intervalIdDoubleClics);
       console.log("Fin de l'exécution après 30 secondes.");
+      randomNum = null;
     }
   }
 
@@ -305,7 +330,6 @@ function bonusTemporaire() {
 }
 
 var intervalIdDoubleClics = setInterval(bonusTemporaire, 6000);
-bonusTemporaire();
 
 // // Récupérer l'élément du bouton et l'élément audio
 // const playButton = document.getElementById("sectionClicker");
@@ -321,15 +345,3 @@ bonusTemporaire();
 // });
 
 // Sélectionnez la div que vous souhaitez rendre cliquable
-let divCliquable = document.getElementById("sectionCliquer");
-
-// Ajouter un écouteur d'événement pour le clic sur l'image
-image.addEventListener("click", function () {
-  // Ajouter la classe 'clicked' pour appliquer l'effet de clic
-  image.classList.add("clicked");
-
-  // Supprimer la classe 'clicked' après un court délai pour réinitialiser l'effet
-  setTimeout(function () {
-    image.classList.remove("clicked");
-  }, 300); // ajuster le délai selon la durée de votre transition CSS
-});

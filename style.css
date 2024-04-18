@@ -200,3 +200,18 @@ p {
     -50%
   ); /* Centrer le bouton par rapport au centre du conteneur */
 }
+.background-image {
+  position: relative;
+  display: inline-block; /* Permet de conserver la taille du conteneur selon le contenu */
+}
+
+.button-container {
+  position: absolute;
+  top: 10px; /* Ajustez la valeur pour le positionnement vertical */
+  right: 10px; /* Ajustez la valeur pour le positionnement horizontal */
+}
+.bouton-accueil {
+  padding: 15px 15px;
+  background-color: #3fc795;
+  color: white;
+}
