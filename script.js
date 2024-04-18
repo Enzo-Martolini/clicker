@@ -18,13 +18,20 @@ let div10 = document.getElementById("10");
 
 let numberOfClick = 0;
 
-var audio = new Audio("sons/son accueil.mp3"); // initializing audio
+var audio = new Audio("sons/son accueil.mp3"); // initialisation de l'audio
+audio.loop = true; // active la mise en boucle
 
-musique(); // Now calling the function after audio is initialized
-
-function musique() {
-  audio.play(); // Now this should work fine
+// Définition d'une fonction pour gérer la mise en boucle
+function loopAudio() {
+  audio.currentTime = 0; // rembobiner la musique au début
+  audio.play(); // relancer la lecture
 }
+
+// Ajout d'un écouteur d'événements pour détecter la fin de la musique
+audio.addEventListener("ended", loopAudio);
+
+// Lancement de la musique
+audio.play();
 
 if (localStorage.getItem("nombreDeClick")) {
   numberOfClick = Number(localStorage.getItem("nombreDeClick"));
@@ -312,3 +319,17 @@ bonusTemporaire();
 //   // Désactiver le bouton après le premier clic
 //   playButton.disabled = true;
 // });
+
+// Sélectionnez la div que vous souhaitez rendre cliquable
+let divCliquable = document.getElementById("sectionCliquer");
+
+// Ajouter un écouteur d'événement pour le clic sur l'image
+image.addEventListener("click", function () {
+  // Ajouter la classe 'clicked' pour appliquer l'effet de clic
+  image.classList.add("clicked");
+
+  // Supprimer la classe 'clicked' après un court délai pour réinitialiser l'effet
+  setTimeout(function () {
+    image.classList.remove("clicked");
+  }, 300); // ajuster le délai selon la durée de votre transition CSS
+});
