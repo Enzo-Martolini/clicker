@@ -119,7 +119,7 @@ footer {
   height: auto;
 }
 .imgOdin {
-  width: 168px;
+  width: 142px;
   height: auto;
 }
 .imgValoPoint {
@@ -160,6 +160,8 @@ p {
   margin: 0;
   padding: 0px;
   font-size: 0.8em;
+  margin-top: 15px;
+  white-space: nowrap;
 }
 
 p {
