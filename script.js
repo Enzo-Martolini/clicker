@@ -46,6 +46,21 @@ button.addEventListener("click", function () {
     sonsArmes.src = "sons/son ghost.mp3";
     sonsArmes.play();
   }
+  if (bonus125) {
+    // Jouer le son lorsque le bonus50 est activé
+    sonsArmes.src = "sons/son spectre.mp3";
+    sonsArmes.play();
+  }
+  if (bonus500) {
+    // Jouer le son lorsque le bonus50 est activé
+    sonsArmes.src = "sons/son vandal.mp3";
+    sonsArmes.play();
+  }
+  if (bonus1000) {
+    // Jouer le son lorsque le bonus50 est activé
+    sonsArmes.src = "sons/son odin.mp3";
+    sonsArmes.play();
+  }
 });
 
 var audio = new Audio("sons/son accueil.mp3"); // initialisation de l'audio
@@ -103,6 +118,7 @@ button50.addEventListener("click", startAutoClicker);
 
 function startAutoClicker() {
   if (numberOfClick >= 50 && bonus50 != true) {
+    numberOfClick -= 50; // Soustraire 50 du compteur de clics
     interval = 1000;
     autoClicker();
     startInterval();
@@ -181,6 +197,7 @@ function startInterval() {
 
 button125.addEventListener("click", function () {
   if (numberOfClick >= 125 && bonus125 != true) {
+    numberOfClick -= 125; // Soustraire 125 du compteur de clics
     bonus125 = true;
     localStorage.setItem("bonus125", bonus125);
     interval = 500;
@@ -193,6 +210,7 @@ button125.addEventListener("click", function () {
 
 button500.addEventListener("click", function () {
   if (numberOfClick >= 500 && bonus500 != true) {
+    numberOfClick -= 500; // Soustraire 500 du compteur de clics
     // Arrêter l'intervalle existant
     clearInterval(intervalID);
 
@@ -212,6 +230,7 @@ button500.addEventListener("click", function () {
 
 button1000.addEventListener("click", function () {
   if (numberOfClick >= 1000 && bonus1000 != true) {
+    numberOfClick -= 1000; // Soustraire 1000 du compteur de clics
     bonus1000 = true;
     localStorage.setItem("bonus1000", bonus1000);
     interval = 125;
