@@ -53,12 +53,19 @@ html {
   height: auto;
   object-fit: cover;
 }
+
 .gekko {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2; /* Assure que l'image Pogo est au-dessus de l'image de fond */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.gekko:hover {
+  opacity: 0.7;
 }
 
 footer {
