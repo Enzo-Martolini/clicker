@@ -1,6 +1,9 @@
-body {
-  padding: 0;
-  margin: 0;
+
+p {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
 }
 
 header {
@@ -14,7 +17,7 @@ header {
 #progression {
   display: flex;
   justify-content: center;
-  width: 100%;
+width: 100%;
 }
 
 #progression div {
@@ -30,10 +33,17 @@ header {
 }
 
 #compteur {
-  position: fixed;
+  position:fixed;
   z-index: 2;
   left: 2;
-  top: 10;
+  top:10;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .background-image {
@@ -51,19 +61,12 @@ header {
   height: auto;
   object-fit: cover;
 }
-
 .gekko {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2; /* Assure que l'image Pogo est au-dessus de l'image de fond */
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.gekko:hover {
-  opacity: 0.7;
 }
 
 footer {
@@ -88,22 +91,18 @@ footer {
 }
 
 .footer-item {
-  width: 20%;
-  border: solid 1px black;
-  box-shadow: 0px 0px 5px black;
-  height: 130px;
-  background-color: #3a3e3f;
-  margin: 0 10px; /* Ajoutez ici les styles des éléments de votre pied de page */
+  height: 20vh;
+  width: 40vh;
   display: flex;
-  justify-content: space-between; /* Pour empiler les éléments verticalement */
-  align-items: flex-start;
-}
+} 
 
 .footer-item:hover {
   background-color: #3fc795; /* Fond vert au survol */
+    box-shadow: 0px 0px 10px;
+
 }
 .footer-item:active {
-  /* box-shadow: 0px 0px 0px; */
+  box-shadow: 0px 0px 0px;
   border: 0px;
 }
 
@@ -112,29 +111,27 @@ footer {
 }
 
 .imgGhost {
-  width: 140px;
-  height: auto;
-}
-.imgSpectre {
-  width: 186px;
-  height: auto;
-}
-.imgVandal {
   width: 170px;
   height: auto;
 }
-.imgOdin {
-  width: 142px;
+.imgSpectre {
+  width: 206px;
   height: auto;
 }
-.imgValoPoint {
-  width: 25px;
+.imgVandal {
+  width: 200px;
+  height: auto;
+}
+.imgOdin {
+  width: 198px;
   height: auto;
 }
 p {
   font-weight: bold;
+  font-size: small;
 }
 .footer-item .left-column {
+  height: 100vh;
   display: flex;
   flex-direction: column; /* Pour empiler les éléments verticalement */
   align-items: flex-start; /* Pour aligner les éléments à gauche */
@@ -143,11 +140,6 @@ p {
 .footer-item .right-column {
   display: flex;
   align-items: center; /* Pour aligner l'image verticalement */
-}
-
-.line_clicpoints {
-  display: flex;
-  align-items: center;
 }
 
 #compteur {
@@ -160,74 +152,23 @@ p {
   padding-left: 10px;
 }
 
-.power {
-  font-style: italic;
-  margin: 0;
-  padding: 0px;
-  font-size: 0.8em;
-  margin-top: 15px;
-  white-space: nowrap;
-}
-
-p {
-  margin: 3px;
-  padding: 0;
+.right-column {
+  padding-right: 10px;
 }
 
 #sova {
-  position: fixed;
+  position:fixed;
   display: none;
   z-index: 2;
   bottom: 0;
 }
 
-.accueil {
-  width: 99.99%;
-  height: 99%;
-} 
-
-img.accueil {
-  width: 100vw;
-  /*height: 99.90vh;*/
+#sectionClicker img:hover {
+  transform: scale(1.1); /* Redimensionner l'image à 110% */
+  transform-origin: center; 
 }
 
-body {
-  background-image: url("/images/gekko_accueil_lockin.jpg");
-}
-
-
-.image-container {
-  height: 100%;
-  width: 100%;
-  position: relative; /* Définir la position relative pour que les éléments internes soient positionnés par rapport à ce conteneur */
-  display: inline-block; /* Permet de conserver la taille du conteneur selon le contenu*/
-}
-
- #selectButton {
-  font-weight: bold;
-  padding: 15px 35px;
-  color: white;
-  background-color: #3fc795;
-  position: fixed; /* Positionner le bouton de manière absolue */
-  top: 67%; /* Déplacer le bouton à 50% de la hauteur du conteneur */
-  left: 50%; /* Déplacer le bouton à 50% de la largeur du conteneur */
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Centrer le bouton par rapport au centre du conteneur */
-}
-.background-image {
-  position: relative;
-  display: inline-block; /* Permet de conserver la taille du conteneur selon le contenu */
-}
-
-.button-container {
-  position: absolute;
-  top: 10px; /* Ajustez la valeur pour le positionnement vertical */
-  right: 10px; /* Ajustez la valeur pour le positionnement horizontal */
-}
-.bouton-accueil {
-  padding: 15px 15px;
-  background-color: #3fc795;
-  color: white;
+#sectionClicker img:active {
+  transform: scale(0.9); /* Redimensionner l'image à 110% */
+  transform-origin: center; 
 }
