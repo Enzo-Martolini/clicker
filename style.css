@@ -164,11 +164,11 @@ p {
 }
 
 #sectionClicker img:hover {
-  transform: scale(1.1); /* Redimensionner l'image à 110% */
+  transform: scale(1.1); 
   transform-origin: center; 
 }
 
 #sectionClicker img:active {
-  transform: scale(0.9); /* Redimensionner l'image à 110% */
+  transform: scale(0.9); 
   transform-origin: center; 
 }

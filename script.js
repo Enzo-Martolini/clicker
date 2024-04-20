@@ -16,7 +16,13 @@ let div8 = document.getElementById("8");
 let div9 = document.getElementById("9");
 let div10 = document.getElementById("10");
 
-let numberOfClick = 0;
+let numberOfClick = 399;
+
+// Déclaration des variables booléennes pour contrôler la lecture des sons
+let ghostSoundPlayed = false;
+let spectreSoundPlayed = false;
+let vandalSoundPlayed = false;
+let odinSoundPlayed = false;
 
 let sonsArmes = new Audio();
 
@@ -271,32 +277,22 @@ function updateCompteur() {
 }
 
 function changerImage() {
+    
   let image = document.querySelector(".gekko img");
 
   if (numberOfClick > 400) {
     image.setAttribute("src", "/images/Verti.png");
   }
 
-  if (numberOfClick == 400) {
-    audio.src = "sons/son verti.mp3";
-    audio.play();
-  }
-
   if (numberOfClick > 600) {
     image.setAttribute("src", "/images/Altego.png");
   }
-  if (numberOfClick == 600) {
-    audio.src = "sons/son altego.mp3";
-    audio.play();
-  }
+
   if (numberOfClick > 1000) {
     image.setAttribute("src", "/images/Mordicus.png");
   }
-  if (numberOfClick == 1000) {
-    audio.src = "sons/son mordicus.mp3";
-    audio.play();
-  }
 }
+
 
 function randomSova() {
   console.log("tentative sova");
@@ -348,19 +344,4 @@ function bonusTemporaire() {
   console.log(randomNum);
 }
 
-var intervalIdDoubleClics = setInterval(bonusTemporaire, 6000);
-
-// // Récupérer l'élément du bouton et l'élément audio
-// const playButton = document.getElementById("sectionClicker");
-// const audio = document.getElementById("audio");
-
-// // Ajouter un gestionnaire d'événements pour le premier clic sur le bouton
-// playButton.addEventListener("click", function () {
-//   // Jouer le son
-//   audio.play();
-
-//   // Désactiver le bouton après le premier clic
-//   playButton.disabled = true;
-// });
-
-// Sélectionnez la div que vous souhaitez rendre cliquable
+var intervalIdDoubleClics = setInterval(bonusTemporaire, 60000);
