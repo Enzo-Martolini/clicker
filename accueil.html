@@ -4,14 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("images/gekko_background.jpg"); /* Adjust the path to your background image */
+        background-size: cover; /* Ensure the background image covers the entire viewport */
+      }
+
+      #selectButton {
+        font-weight: bold;
+        padding: 15px 35px;
+        color: white;
+        background-color: #3fc795;
+        position: fixed; /* Positionner le bouton de manière absolue */
+        top: 70%; /* Déplacer le bouton à 50% de la hauteur du conteneur */
+        left: 50%; /* Déplacer le bouton à 50% de la largeur du conteneur */
+        transform: translate(
+          -50%,
+          -50%
+        ); /* Centrer le bouton par rapport au centre du conteneur */
+}
+
+      /* Add your other CSS styles here */
+    </style>  </head>
   <body>
     <div class="image-container">
-      <img class="accueil" src="/images/gekko accueil lockin (1).jpg" alt="" />
-      <a href="index.html"
-        ><button id="selectButton">Selectionner Gekko</button></a
-      >
+      <!-- <img class="accueil" src="/images/gekko accueil lockin (1).jpg" alt="Arrière plan gekko" width="auto" height="60vh" /> -->
+      <a href="index.html"><button id="selectButton">Selectionner Gekko</button></a>
     </div>
   </body>
 </html>
