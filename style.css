@@ -3,6 +3,11 @@ p {
   align-items: center;
   text-align: center;
   white-space: nowrap;
+  margin-left: 10px;
+}
+
+h3 {
+  margin-left: 10px;
 }
 
 header {
@@ -60,6 +65,7 @@ html {
   height: auto;
   object-fit: cover;
 }
+
 .gekko {
   position: absolute;
   top: 50%;
@@ -176,4 +182,8 @@ p {
 
 .description_armes {
   transform: translateY(13px);
+}
+
+.cursor_valo {
+  cursor: url('images/cursorvalorant.png'), auto;
 }
