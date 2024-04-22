@@ -173,3 +173,7 @@ p {
   color: white;
   background-color: #3fc795;
 }
+
+.description_armes {
+  transform: translateY(13px);
+}
