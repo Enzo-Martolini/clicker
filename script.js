@@ -16,7 +16,7 @@ let div8 = document.getElementById("8");
 let div9 = document.getElementById("9");
 let div10 = document.getElementById("10");
 
-let numberOfClick = 399;
+let numberOfClick = 0;
 
 // Déclaration des variables booléennes pour contrôler la lecture des sons
 let ghostSoundPlayed = false;
@@ -277,7 +277,6 @@ function updateCompteur() {
 }
 
 function changerImage() {
-    
   let image = document.querySelector(".gekko img");
 
   if (numberOfClick > 400) {
@@ -292,7 +291,6 @@ function changerImage() {
     image.setAttribute("src", "/images/Mordicus.png");
   }
 }
-
 
 function randomSova() {
   console.log("tentative sova");
